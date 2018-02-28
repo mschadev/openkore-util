@@ -1,0 +1,554 @@
+# Please Read the Users Manual
+# The Manual is located at http://openkore.sourceforge.net/manual/
+
+######## 로그인 & 서버설정 ########
+
+username : 아이디입니다.
+password : 비밀번호입니다.
+char : 캐릭터 번호입니다. 왼쪽에서 순서대로 0,1,2...순서입니다. 비워두고 실행하면 캐릭터 선택하는 창이 뜹니다.
+sex : 성별입니다. 비워두셔도 무방합니다.
+
+######## 안건드리셔도 되는 부분 ########
+bindIp
+# 0 = normal server, 1 = oRO, 2 = pRO, 3 = eAthena/Freya,
+# 4 = new Freya, 5 = new eAthena, 6 = new oRO
+# 7 = Aegis 10.x with padded packets, 8 = kRO, 9 = eAthena, 10 = vRO
+# If Skills, Moving, Sitting or whatever doesnt work, try all other servertypes before you complain!
+serverType 0
+
+######## 모니터링 설정 ########
+# 1 = hook into RO client, 2 = Act as stand-alone proxy, proxy = act as true proxy
+XKore 0 : 0은 비모니터링(콘솔모드), 1은 모니터링 모드입니다. 1로 설정시 코어먼저 실행후 라그를 실행하라는 메세지가 뜨면 라그를 실행하세요.
+XKore_silent 1 : 안건드리셔도 되는 부분입니다.
+XKore_bypassBotDetection 0 : 안건드리셔도 되는 부분입니다.
+XKore_exeName ragexe.exe : 모니터링 모드로 실행시 라그를 시작할 파일명입니다. 게임가드 때문에 멀티로더로 실행하셔야합니다.
+                           물론 파일명도 ragexe.exe가 아니라 멀티로더 파일명으로 바꿔주셔야겠죠.
+
+######## 안건드리셔도 되는 부분 ########
+# XKore 2 / Proxy configuration
+XKore_ID
+XKore_listenIp 127.0.0.1
+XKore_listenPort 6901
+XKore_publicIp 127.0.0.1
+XKore_proxyAllowed_IP
+######## 원격조정 설정 ########
+secureAdminPassword 1 : 자동으로 adminPassword를 코어 실행시마다 새로 생성합니다.
+adminPassword : 코어에게 타캐릭으로 원격명령시 인증받을 암호입니다.
+callSign : 코어를 부를때 사용할 명칭입니다.
+commandPrefix ; : Xkore 1모드시 클라에서 코어의 특정명령을 사용하기위한 문자입니다.
+                  ex) ;tele - 콘솔모드(Xkore 0)에서 tele 라고 쓴것과 같은 효과
+
+######## 안건드리셔도 되는 부분 ########
+pauseMapServer 0
+ignoreInvalidLogin 0
+secureLogin_requestCode
+message_length_max 80
+
+######## 기본 공격설정 ########
+alias_heal sp 28 : 단축키 설정입니다. heal 이라고 콘솔창에 입력하면 스킬 28번(힐)을 사용하게 됩니다. 여러가지로 사용할수 있습니다.
+                   ex) alias_no c -_- : 콘솔창에서 no 라고 입력하면 채팅창으로 -_- 가 입력됩니다. 코어가 외국꺼라서 한글은 오류납니다.
+allowedMaps [List] : List에 입력된 맵 이외의 맵에 가게 되면 아래의 reaction 설정에 따라 행동하게 됩니다.
+allowedMaps_reaction 1 : 0은 마을로 귀환, 1은 코어 종료
+attackAuto 2 : 0은 공격안함, 1은 반격만 함, 2는 mon_control.txt 파일의 설정에 따라 공격하게 됩니다.
+attackAuto_party 1 : 1은 파티원이 치는 몬스터를 공격합니다.
+attackAuto_onlyWhenSafe 0 : 0은 주변에 사람이 있어도 공격, 1은 반격만, 2는 잡던몹만 잡고 이동합니다.
+attackAuto_followTarget 1 : 1은 따라다니는 사람의 몹을 공격합니다.
+attackAuto_inLockOnly 1 : 0은 아무맵에서나 공격, 1은 지정된 락맵까지 가는동안 반격, 2는 지정된 락맵까지 공격당해도 그냥 이동합니다.
+attackDistance 1.5 : 공격 사정거리입니다. 일반 밀리캐릭은 기본설정인 1.5가 적당하고 원거리 캐릭은 3정도 주시면 됩니다.
+attackDistanceAuto 0 : 1은 공격거리를 자동으로 측정합니다. 컨픽 설정까지 바꿔버리기에 개인적으론 안쓰는 옵션입니다.
+attackMaxDistance 2.5 : 최대 공격 사정거리입니다. 일반 밀리캐릭은 기본설정인 2.5~3이 적당하고 원거리 캐릭은 적어도 6셀이상은 줘야겠죠.
+attackMaxRouteDistance 100 : 공격시 최대 이동거리입니다. 지정된 거리(셀) 이상 이동해서 공격해야 할 몹은 포기합니다.
+attackMaxRouteTime 4 : 공격시 최대 이동시간입니다. 지정된 시간(초) 이상 이동해서 공격해야 할 몹은 포기합니다.
+attackMinPlayerDistance 2 : 몹과 타인의 거리가 지정된 거리 이내면 포기합니다. 최소 10 이상은 주는걸 권장합니다.
+attackMinPortalDistance 4 : 포탈과 지정된 거리 이내면 공격하지 않습니다.
+attackUseWeapon 1 : 1은 무기를 사용해서 공격합니다. 마법사라면 0으로 해야겠죠.
+attackNoGiveup 0 : 1은 무슨일이 있어도 포기하지 않고 공격합니다. 비추천입니다.
+attackCanSnipe 0 : 1은 원거리 캐릭일시 언덕치기를 가능하게 합니다.
+attackCheckLOS 0 : 1은 레드셀(이동불가지역)을 계산해서 이동합니다. 어떤맵에서든 쓰는게 좋고 특히 장애물이 많은 맵에서 추천합니다.
+attackLooters 0 : 1은 자신이 잡은 몹에서 나온 아이템을 먹자한 몹을 최우선으로 공격합니다.
+attackChangeTarget 1 : ?
+aggressiveAntiKS 0 : 1은 스틸 상관없이 마구 공격합니다. 당연히 0으로 해야겠죠.
+
+######## 안건드리셔도 되는 부분 ########
+autoMoveOnDeath 0 
+autoMoveOnDeath_x
+autoMoveOnDeath_y
+autoMoveOnDeath_map
+
+######## 공격시 장비장착 설정 ########
+attackEquip_topHead : 공격시 설정한 투구 상단 장비를 착용하고 공격합니다.
+attackEquip_midHead : 공격시 설정한 투구 중단 장비를 착용하고 공격합니다.
+attackEquip_lowHead : 공격시 설정한 투구 하단 장비를 착용하고 공격합니다.
+attackEquip_leftHand : 공격시 설정한 왼손 장비를 착용하고 공격합니다.
+attackEquip_rightHand : 공격시 설정한 오른손 장비를 착용하고 공격합니다.
+attackEquip_leftAccessory : 공격시 설정한 왼쪽 악세사리를 착용하고 공격합니다.
+attackEquip_rightAccessory : 공격시 설정한 오른쪽 악세사리를 착용하고 공격합니다.
+attackEquip_robe : 공격시 설정한 걸칠것을 착용하고 공격합니다.
+attackEquip_armor : 공격시 설정한 갑옷을 착용하고 공격합니다.
+attackEquip_shoes : 공격시 설정한 신발을 착용하고 공격합니다.
+attackEquip_arrow : 공격시 설정한 화살을 착용하고 공격합니다.
+
+######## 안건드리셔도 되는 부분 ########
+autoBreakTime {
+ startTime
+ stopTime
+}
+autoConfChange {
+ minTime
+ varTime
+ lvl
+ joblvl
+}
+autoMakeArrows 0
+
+######## 자동 재시작 ########
+autoRestart 0 : 1은 일정시간 후 코어를 재시작합니다.
+autoRestartMin 10800 : 지정된 시간(초)후마다 코어를 재시작합니다.
+autoRestartSeed 3600 : 코어를 재시작하는 시간에 지정된 시간만큼 랜덤시간을 추가합니다. 현재 설정으로는 10800+1~3600초 후에 재시작합니다.
+autoRestartSleep 1 : 1은 코어를 재시작하는 경우에 휴식 시간을 부여합니다.
+autoSleepMin 900 : 지정된 시간(초)만큼 코어를 재시작할때 휴식합니다.
+autoSleepSeed 900 : 코어를 재시작할때 휴식하는 경우에 지정된 시간만큼 랜덤휴식시간을 추가합니다.
+autoResponse 0 : 1은 자동응답하게 됩니다. 해당 설정파일은 chat_resp.txt 이지만 한글이 안되는 관계로 비추천입니다.
+autoSpell : ?
+
+######## GM 및 유저 회피 설정 ########
+avoidGM_near 0 : 0은 사용안함, 1은 텔레포트 후 접속종료, 2는 접속종료, 3은 텔레포트, 4는 마을로 귀환입니다.
+avoidGM_near_inTown 0 : 1은 마을에서 GM 발견시 접속종료합니다.
+avoidGM_talk 0 : 1은 GM이 말걸면 접속종료합니다.
+avoidGM_reconnect 1800 : GM에 의해 접속종료후 지정된 시간(초)후에 재접속합니다.
+avoidGM_ignoreList : 회피 예외 목록입니다. 예를 들어 아이디에 GM이 들어있는 dogma 등의 일반유저를 봤을때 회피하지 않게 해줍니다.
+avoidList 1 : 1은 avoid.txt 에 적힌 사람들을 발견시 접속종료합니다.
+avoidList_inLockOnly 0 : 1은 avoid.txt 에 적힌 사람들을 락맵에서 발견시 접속종료합니다.
+avoidList_reconnect 1800 : avoid.txt 파일에 적힌 사람들에 의해 접속종료시 지정된 시간(초)후에 재접속합니다.
+
+######## 안건드리셔도 되는 부분 ########
+cachePlayerNames 1
+cachePlayerNames_duration 900
+cachePlayerNames_maxSize 100
+clientSight 20
+
+######## 접속종료 설정 ########
+dcOnDeath 0 : 1은 사망시에 접속종료합니다.
+dcOnDualLogin 0 : 1은 중복 로그인시에 접속종료합니다.
+dcOnDisconnect 0 : 1은 서버연결이 끊길시에 접속종료합니다.
+dcOnEmptyArrow 0 : 1은 화살이 없을시에 접속종료합니다.
+dcOnMute 0 : 1은 채팅금지 당했을시에 접속종료합니다.
+dcOnPM 0 : 1은 귓말이 왔을시에 접속종료합니다.
+dcOnZeny 0 : 1은 제니가 없을시에 접속종료합니다.
+dcOnStorageFull 1 : 1은 창고가 가득 찼을시에 접속종료합니다.
+
+######## 특정 캐릭터 따라다니기 설정 ########
+follow 0 : 1은 특정 캐릭터를 따라다닙니다.
+followTarget : 따라다닐 캐릭터 이름을 쓰는곳입니다.
+followEmotion 1 : 1은 따라다니는 캐릭터의 이모션을 따라합니다.
+followEmotion_distance 4 : 따라다니는 캐릭터의 이모션을 인식하는 거리입니다.
+followFaceDirection 0 : 1은 따라다니는 캐릭터의 시야 방향을 따라합니다.
+followDistanceMax 6 : 따라다니는 캐릭터와의 최대 유지거리입니다.
+followDistanceMin 3 : 따라다니는 캐릭터와의 최소 유지거리입니다.
+followLostStep 12 : 따라다니는 캐릭터를 잃어버리는 거리입니다.
+followSitAuto 0 : 1은 따라다니는 캐릭터가 앉는것을 따라합니다.
+followBot 0 : 1은 따라다니는 캐릭터가 봇인경우 활성화시키고 귓말로 콘솔명령을 내릴수 있습니다.
+
+######## 아이템 줍기 설정 ########
+itemsTakeAuto 2 : 1은 자신에게 붙은 몹을 다잡고 줍기, 2는 잡을때마다 줍기입니다.
+itemsTakeAuto_party 0 : 1은 파티원이 잡은 몹에서 나온 아이템도 줍습니다.
+itemsGatherAuto 2 : 1은 자신에게 붙은 몹을 다잡고 모든 아이템(남의 것까지)을 줍기, 2는 잡을때마다 모든 아이템(남의 것까지)을 줍습니다.
+itemsMaxWeight 89 : 지정한 무게(%)만큼만 아이템을 줍습니다.
+itemsMaxWeight_sellOrStore 48 : 지정한 무게(%)가 되면 마을로 귀환해서 상점에 팔고 창고에 넣습니다.
+itemsMaxNum_sellOrStore 99 : 지정한 갯수만큼 아이템을 주으면 마을로 귀환해서 상점에 팔고 창고에 넣습니다.
+cartMaxWeight 7900 : 지정한 무게만큼 카트에 넣을수 있습니다.
+
+######## 락맵 설정 ########
+lockMap pay_dun00: 자신이 사냥할 맵을 지정합니다. maps.txt 파일을 참고해서 적으시면 됩니다. ex) gef_dun02
+lockMap_x : 자신이 사냥할 맵에서 고정사냥할 위치좌표중 X좌표입니다.
+lockMap_y : 자신이 사냥할 맵에서 고정사냥할 위치좌표중 Y좌표입니다.
+lockMap_randX : 자신이 사냥할 맵에서 고정사냥할 위치좌표중 X좌표에서 랜덤수치를 추가합니다.
+lockMap_randY : 자신이 사냥할 맵에서 고정사냥할 위치좌표중 Y좌표에서 랜덤수치를 추가합니다.
+
+######## 랜덤이동 설정 ########
+route_escape_unknownMap 1 : ?
+route_escape_reachedNoPortal 1 : ?
+route_escape_randomWalk 1 : ?
+route_randomWalk 1 : 1은 랜덤이동을 사용합니다.
+route_randomWalk_inTown 0 : 1은 마을에서 랜덤이동을 사용합니다.
+route_randomWalk_maxRouteTime 75 : 한번 이동에 필요한 최대시간입니다. 이시간 이상 소비되면 다음 이동루트를 계산합니다.
+route_maxWarpFee : 엔피시를 통해 이동할때 사용할 최대 워프비용입니다. 이 비용이 넘으면 더이상 카프라 워프를 사용하지 않습니다.
+route_maxNpcTries 5 : 락맵까지 거쳐가는 엔피시의 최대 숫자입니다.
+route_teleport 0 : 1은 락맵까지 이동시 각 맵에서 텔레포트를 사용하여 이동합니다.
+route_teleport_minDistance 150 : 다음 이동 포탈에서 지정된 거리(셀)만큼의 위치에 떨어졌을때 걸어서 이동합니다.
+route_teleport_maxTries 8 : 락맵까지 이동시 각 맵에서 텔레포트를 사용하는 최대 횟수입니다.
+route_teleport_notInMaps : 지정된 맵에서는 락맵까지 이동시에도 텔레포트를 사용하지 않습니다.
+route_step 15 : 한번 이동에 걸어가는 셀의 거리입니다.
+
+######## 무빙샷 설정 ########
+runFromTarget 0 : 1은 무빙샷을 사용합니다.
+runFromTarget_dist 6 : 무빙샷을 사용할시 몹과 유지할 거리입니다.
+
+######## 저장된 마을 설정 ########
+saveMap : 나비를 타고 귀환할 저장되어있는 마을의 이름입니다. ex)prontera
+saveMap_warpToBuyOrSell 1 : 1은 물건을 사거나 팔러 올때 나비를 사용합니다.
+saveMap_warpChatCommand : ?
+
+######## 노점 설정 ########
+shopAuto_open 0 : 1은 접속후 자동으로 노점을 엽니다.
+shop_random 0 : 1은 shop.txt 에 적혀있는 물품을 랜덤으로 골라 노점을 엽니다.
+
+######## 앉기 설정 ########
+sitAuto_hp_lower 40 : 지정된 체력(%) 이하가 되면 앉습니다.
+sitAuto_hp_upper 100 : 지정된 체력(%) 이상이 되면 일어섭니다.
+sitAuto_sp_lower 0 : 지정된 에스피(%) 이하가 되면 앉습니다.
+sitAuto_sp_upper 0 : 지정된 에스피(%) 이상이 되면 일어섭니다.
+sitAuto_over_50 0 : 1은 무게가 50% 이상이면 앉습니다.
+sitAuto_idle 1 : 1은 심심하면(아무 활동이 없으면) 앉습니다.
+
+######## 스텟&스킬 포인트 설정 ########
+statsAddAuto 0 : 1은 자동으로 스텟을 올립니다.
+statsAddAuto_list : 자동으로 올릴 스텟 리스트입니다. 
+                    ex) statsAddAuto_list 30 dex, 20 str, 60 agi -> 덱스부터 30 올리고 다음에 힘을 20 올린뒤 어질을 60 올립니다.
+statsAddAuto_dontUseBonus 0 : 1은 가중치를 계산에 넣지 않습니다.
+statsAdd_over_99 0 : 1은 스텟을 99이상 올립니다.
+skillsAddAuto 0 : 1은 자동으로 스킬을 올립니다.
+skillsAddAuto_list : 자동으로 올릴 스킬 리스트입니다.
+                     ex) skillsAddAuto_list 10 Bash, 10 Two-Handed Sword Mastery
+
+######## 몸빵모드 설정 ########
+tankMode 0 : 1은 몸빵모드를 사용합니다.
+tankModeTarget : 몸빵모드를 사용해줄 캐릭터 이름입니다.
+
+######## 텔레포트 설정 ########
+teleportAuto_hp 20 : 지정된 체력(%) 이하가 되면 텔레포트합니다.
+teleportAuto_sp 0 : 지정된 에스피(%) 이하가 되면 텔레포트합니다.
+teleportAuto_idle 0 : 1은 심심하면(아무 활동이 없으면) 텔레포트합니다.
+teleportAuto_portal 0 : 1은 포탈이 보이면 텔레포트합니다.
+teleportAuto_search 0 : 1은 monster.txt 파일에 설정한 몬스터를 찾으러 텔레포트합니다.
+teleportAuto_minAggressives 0 : 지정된 몬스터만큼 자신에게 붙으면 텔레포트합니다.
+teleportAuto_minAggressivesInLock 0 : 지정된 몬스터만큼 락맵에서 자신에게 붙으면 텔레포트합니다.
+teleportAuto_onlyWhenSafe 0 : 1은 안전할때만(주위에 유저가 없을때) 텔레포트합니다.
+teleportAuto_maxDmg 500 : 지정된 숫자만큼 데미지를 입으면 텔레포트합니다.
+teleportAuto_maxDmgInLock 0 : 지정된 숫자만큼 락맵에서 데미지를 입으면 텔레포트합니다.
+teleportAuto_deadly 1 : 1은 다음 공격으로 죽게되면 공격받기 전에 텔레포트합니다.
+teleportAuto_useSkill 3 : 0은 아이템사용, 1은 스킬사용(SP소모), 2는 스킬사용(주위에 사람이 없을시만 무료텔), 3은 스킬사용(무료텔) 합니다.
+teleportAuto_useChatCommand : ?
+teleportAuto_allPlayers 0 : 1은 모든 유저가 보이면 텔레포트합니다. 마을에서는 작동하지 않습니다.
+teleportAuto_atkCount 0 : 지정된 숫자만큼 공격후 텔레포트합니다.
+teleportAuto_atkMiss 10 : 지정된 숫자만큼 미스가 나면 텔레포트합니다.
+teleportAuto_unstuck 0 : 1은 더이상 걸어갈수 없는 상황이 되면 텔레포트합니다.
+teleportAuto_dropTarget 0 : 1은 몬스터를 포기해야 하는 상황이 되면 텔레포트합니다.
+teleportAuto_dropTargetKS 0 : 1은 스틸로 인정되면 텔레포트합니다.
+teleportAuto_attackedWhenSitting 0 : 1은 앉아있을때 공격당하면 텔레포트합니다.
+teleportAuto_totalDmg 0 : 한 개체의 몹에게 지정된 숫자만큼 데미지를 입으면 텔레포트합니다.
+teleportAuto_totalDmgInLock 0 : 한 개체의 몹에게 락맵에서 지정된 숫자만큼 데미지를 입으면 텔레포트합니다.
+teleportAuto_equip_leftAccessory : 지정된 아이템을 텔레포트시 왼쪽 악세사리에 장착합니다.
+teleportAuto_equip_rightAccessory : 지정된 아이템을 텔레포트시 오른쪽 악세사리에 장착합니다.
+teleportAuto_lostTarget : 지정된 타겟을 잃어버렸을때 텔레포트합니다.
+
+######## 자동 파티&거래 설정 ########
+dealAuto 1 : 0은 거래무시, 1은 자동 거래취소, 2는  자동 거래수락입니다.
+partyAuto 1 : 0은 파티무시, 1은 자동 파티취소, 2는 자동 파티수락입니다.
+partyAutoShare 0 : 1은 자동으로 경험치 균등파티로 설정합니다.
+guildAutoDeny 1 : 1은 자동으로 길드가입을 거절합니다.
+
+######## 안건드리셔도 되는 부분 ########
+verbose 1
+showDomain 0
+squelchDomains
+verboseDomains
+beepDomains
+beepDomains_notInTown
+
+######## 로그 설정 ########
+logChat 0 : 1은 채팅 내용을 파일로 기록합니다.
+logPrivateChat 1 : 1은 귓말 내용을 파일로 기록합니다.
+logPartyChat 1 : 1은 파티채팅 내용을 파일로 기록합니다.
+logGuildChat 1 : 1은 길드채팅 내용을 파일로 기록합니다.
+logSystemChat 1 : 1은 공지 내용을 파일로 기록합니다.
+logEmoticons : 1은 이모티콘을 파일로 기록합니다.
+logConsole 0 : 1은 코어에서 나타나는 모든 내용을 파일로 기록합니다.
+logAppendUsername 1 : 1은 파일로 기록시 파일명에 아이디를 첨가합니다.
+
+######## 채팅창&노점 이름 설정 ########
+chatTitleOversize 0 : 1은 채팅방 개설시 이름 길이를 36바이트(한글 18글자)로 제한합니다.
+shopTitleOversize 0 : 1은 노점 개설시 이름 길이를 36바이트(한글 18글자)로 제한합니다.
+
+######## 안건드리셔도 되는 부분 ########
+sleepTime 10000
+intervalMapDrt 1
+
+######## 기타 설정 ########
+ignoreAll 0 : 1은 모든 귓말을 차단합니다.
+itemHistory 0 : 1은 아이템 목록을 기록합니다.
+autoTalkCont 1 : 1은 엔피시 대화시 자동으로 다음으로 넘어갑니다.('다음' 버튼)
+noAutoSkill 0 : 1은 아브라 시전시 자동 스킬시전을 막습니다.
+portalRecord 2 : 0은 사용안함, 1은 자신이 걸어간 포탈만 기록, 2는 자신이 걸어간 포탈과 돌아올 반대편 포탈도 기록합니다.
+missDamage 0 : 지정된 숫자만큼의 데미지를 미스로 인정합니다. ex) 축기나 무무쎈 등으로 인한 데미지
+
+######## 몸빵모드 리스트 설정 ########
+tankersList : 자신을 몸빵하는 캐릭터의 리스트입니다. 여기에 적힌 캐릭터에게 붙은 몹을 공격하는 것은 스틸로 인정되지 않습니다.
+              자신의 호문을 적으면 호문에 붙은 몹을 공격합니다.
+
+######## 안건드리셔도 되는 부분 ########
+removeActorWithDistance
+######## 호문클루스 설정########
+(위의 여러 캐릭터 설정법과 동일한듯 하니 참조하셔서 설정하시길; 슬슬 귀차니즘 발동;;)
+homunculus_attackAuto 2
+homunculus_attackAuto_party 1
+homunculus_attackAuto_notInTown 1
+homunculus_attackAuto_onlyWhenSafe 0
+homunculus_attackDistance 1.5
+homunculus_attackMaxDistance 2.5
+homunculus_attackMaxRouteTime 4
+homunculus_attackMinPlayerDistance 3
+homunculus_attackMinPortalDistance 8
+homunculus_attackCanSnipe 0
+homunculus_attackCheckLOS 0
+homunculus_attackNoGiveup 0
+homunculus_attackChangeTarget 1
+homunculus_followDistanceMax 10
+homunculus_followDistanceMin 3
+homunculus_resurrectAuto 2
+homunculus_route_step 15
+homunculus_tankMode 0
+homunculus_tankModeTarget
+homunculus_teleportAuto_hp 10
+homunculus_teleportAuto_maxDmg 500
+homunculus_teleportAuto_maxDmgInLock 0
+homunculus_teleportAuto_deadly 1
+homunculus_teleportAuto_unstuck 0
+homunculus_teleportAuto_dropTarget 0
+homunculus_teleportAuto_dropTargetKS 0
+homunculus_teleportAuto_totalDmg 0
+homunculus_teleportAuto_totalDmgInLock 0
+
+######## 공격 스킬 사용 설정 ########
+# You can copy & paste any block multiple times. So if you want to
+# configure two attack skills, just duplicate the attackSkillSlot block.
+attackSkillSlot { : 지정된 공격 스킬을 사용합니다. skills.txt 파일을 참조하세요. ex) attackSkillSlot Bash {
+ lvl 10 : 사용할 공격스킬의 레벨입니다.
+ dist 1.5 : 공격스킬을 사용할 사정거리입니다.
+ maxCastTime 0 : 최대 스킬캐스팅 시간입니다.
+ minCastTime 0 : 최소 스킬캐스팅 시간입니다.
+ hp : 지정된 체력 조건에 맞게 스킬을 사용합니다. ex) hp > 20% ->체력이 20퍼보다 많으면 스킬사용
+ sp : 지정된 에스피 조건에 맞게 스킬을 사용합니다. ex) sp > 20% ->에스피가 20퍼보다 많으면 스킬사용
+ onAction : 지정된 AI의 행동 조건에 따라 스킬을 사용합니다. ex) onAction attack ==> AI가 공격을 하려고 할때 스킬사용
+ whenStatusActive : 자신이 지정된 특정상황이 되면 스킬을 사용합니다. skillsstatus.txt 파일을 참조하세요.
+                    ex) whenStatusActive Hiding
+ whenStatusInactive : 자신이 지정된 특정상황이 해제되면 스킬을 사용합니다. skillsstatus.txt 파일을 참조하세요.
+                      ex) whenStatusInactive Cloaking
+ whenFollowing : 1은 따라다니는 캐릭터를 설정했을때 그 캐릭터를 따라갈때만 사용합니다.
+ spirit : 몽크의 축기조건입니다. 항상 5개를 가지고 다니려면 <5 로 설정하세요.
+ aggressives : 지정한 숫자만큼의 몹이 자신에게 붙으면 사용합니다.
+ previousDamage : ?
+ stopWhenHit 0 : 1은 공격받으면 스킬사용을 중지합니다.
+ inLockOnly 0 : 1은 지정된 락맵에서만 스킬을 사용합니다.
+ notInTown 0 : 1은 마을에서는 스킬사용을 하지 않습니다.
+ timeout 0 : 지정된 시간후마다 스킬을 사용합니다.
+ disabled 0 : 1은 해당 스킬을 사용하지 않습니다. 현재는 사용하지 않으나 다음에 사용할수 있게 남겨둘때 쓰면 됩니다.
+ monsters : 지정된 몹에게만 스킬을 사용합니다.
+ notMonsters : 지정된 몹을 제외한 나머지 몹에게 스킬을 사용합니다.
+ maxAttempts 0 : ?
+ maxUses 0 : 지정된 숫자만큼 스킬을 사용합니다.
+ target_whenStatusActive : 몬스터가 지정된 특정상황이 되면 스킬을 사용합니다. 위쪽 설정 참고하세요.
+ target_whenStatusInactive : 몬스터가 지정된 특정상황이 해제되면 스킬을 사용합니다. 위쪽 설정 참고하세요.
+ target_deltaHp : ?
+ inInventory : 지정된 아이템이 자신의 인벤토리에 있을때 스킬을 사용합니다.
+ isSelfSkill 0 : ?
+ equip_topHead : ?
+ equip_midHead : ?
+ equip_lowHead : ?
+ equip_leftHand : ?
+ equip_rightHand : ?
+ equip_leftAccessory : ?
+ equip_rightAccessory : ?
+ equip_robe : ?
+ equip_armor : ?
+ equip_shoes : ?
+ equip_arrow : ?
+ manualAI 0 : ?
+}
+
+######## 콤보 스킬 사용 설정 ########
+attackComboSlot { : 지정된 공격스킬로 콤보스킬 공격을 사용합니다.
+ afterSkill : 지정된 스킬을 위의 스킬이 발동한 후에 사용합니다.
+ waitBeforeUse : 지정된 시간만큼 콤보스킬 사용시 딜레이를 줍니다.
+ dist 1.5 : 콤보스킬을 사용할 사정거리입니다.
+ isSelfSkill 1 : 1은 자기 자신에게 사용하는 스킬일 경우에 설정합니다.
+ target_deltaHp : ?
+}
+
+######## 자신에게 쓰는 스킬 사용 설정 ########
+useSelf_skill { : 지정한 스킬을 자신에게 사용합니다.
+ lvl 10 : 사용할 셀프스킬의 레벨입니다.
+ maxCastTime 0 : 셀프스킬의 최대 캐스팅 타임입니다.
+ minCastTime 0 : 셀프스킬의 최소 캐스팅 타임입니다.
+ hp : 지정된 체력 조건에 맞게 스킬을 사용합니다. ex) hp > 20% ->체력이 20퍼보다 많으면 스킬사용
+ sp : 지정된 에스피 조건에 맞게 스킬을 사용합니다. ex) sp > 20% ->에스피가 20퍼보다 많으면 스킬사용
+ onAction : 지정된 AI의 행동 조건에 따라 스킬을 사용합니다. ex) onAction attack ==> AI가 공격을 하려고 할때 스킬사용
+ whenStatusActive : 자신이 지정된 특정상황이 되면 스킬을 사용합니다. skillsstatus.txt 파일을 참조하세요.
+                    ex) whenStatusActive Increase AGI
+ whenStatusInactive : 자신이 지정된 특정상황이 해제되면 스킬을 사용합니다. skillsstatus.txt 파일을 참조하세요.
+                      ex) whenStatusInactive Blessing
+ whenFollowing : 1은 따라다니는 캐릭터를 설정했을때 그 캐릭터를 따라갈때만 사용합니다.
+ spirit : 몽크의 축기조건입니다. 항상 5개를 가지고 다니려면 <5 로 설정하세요.
+ aggressives : 지정한 숫자만큼의 몹이 자신에게 붙으면 사용합니다.
+ monsters : 지정된 몹에게만 스킬을 사용합니다.
+ notMonsters : 지정된 몹을 제외한 나머지 몹에게 스킬을 사용합니다.
+ stopWhenHit 0 : 1은 공격받으면 스킬사용을 중지합니다.
+ inLockOnly 0 : 1은 지정된 락맵에서만 스킬을 사용합니다.
+ notWhileSitting 0 : 1은 앉아있을때는 사용하지 않습니다.
+ notInTown 0 : 1은 마을에서는 스킬사용을 하지 않습니다.
+ timeout 0 : 지정된 시간후마다 스킬을 사용합니다.
+ disabled 0 : 1은 해당 스킬을 사용하지 않습니다. 현재는 사용하지 않으나 다음에 사용할수 있게 남겨둘때 쓰면 됩니다.
+ inInventory : 지정된 아이템이 자신의 인벤토리에 있을때 스킬을 사용합니다.
+ manualAI 0
+}
+useSelf_skill_smartHeal 1 : 힐할때 자동으로 필요한 힐량을 맞춰서 사용합니다.
+
+######## 파티 스킬 사용 설정 ########
+(중복되는 설정은 비워둘테니 위쪽의 설명을 참고하시길..)
+partySkill {
+ lvl 10
+ maxCastTime 0
+ minCastTime 0
+ hp
+ sp
+ onAction
+ whenStatusActive
+ whenStatusInactive
+ whenFollowing
+ spirit
+ aggressives
+ monsters
+ notMonsters
+ stopWhenHit 0
+ inLockOnly 0
+ notWhileSitting 0
+ notInTown 0
+ timeout 0
+ disabled 0
+ manualAI 0
+ target : 지정된 파티원에게 스킬을 사용합니다.
+ target_hp : 지정된 파티원의 체력 조건에 맞게 스킬을 사용합니다.
+ target_isJob : 지정된 파티원의 직업이 설정한 직업에 해당되면 스킬을 사용합니다.
+ target_isNotJob : 지정된 파티원이 직업이 설정한 직업에 해당되지 않으면 스킬을 사용합니다.
+ target_whenStatusActive : 지정된 파티원이 특정상황이 되면 스킬을 사용합니다.
+ target_whenStatusInactive : 지정된 파티원이 특정상황이 해제되면 스킬을 사용합니다.
+ target_aggressives : 지정된 파티원에게 설정한 숫자만큼이 몹이 붙으면 스킬을 사용합니다.
+ target_monsters : 지정된 파티원에게 설정한 몹이 붙으면 스킬을 사용합니다.
+ target_timeout 0 : 지정된 파티원에게 설정한 시간(초)마다 스킬을 사용합니다.
+ target_deltaHp
+ target_dead 0
+ inInventory : 
+ isSelfSkill 0
+}
+
+######## 장비 스위칭 설정 ########
+autoSwitch_default_rightHand : 지정된 장비를 사냥시에 기본 장비로 오른손에 장착합니다.
+autoSwitch_default_leftHand : 지정된 장비를 사냥시에 기본 장비로 왼손에 장착합니다.
+autoSwitch_default_arrow : 지정된 화살을 사냥시에 기본 화살로 몸뚱이에 장착합니다.
+# NOTE: In the case of two handed weapons, or no Shield,
+#       duplicate the weapon name for 'rightHand'
+# To attack with bare hands, specify "[NONE]" (without the quotes) for rightHand
+autoSwitch { : 지정된 몬스터를 공격할때 장비를 스위칭합니다.
+ rightHand : 지정된 장비를 오른손에 장착합니다.
+ leftHand : 지정된 장비를 왼손에 장착합니다.
+ arrow : 지정된 화살을 몸뚱이에 장착합니다.
+ distance : 지정된 거리에 몹이 왔을때 장비를 스위칭합니다.
+ useWeapon : 1은 무기를 사용합니다. 마법사는 0으로 해야겠죠.
+}
+
+######## 자동 아이템 장착 설정 ########
+(중복되는 설정은 비워둘테니 위쪽의 설명을 참고하시길..)
+equipAuto { : 지정된 장비로 교체합니다.
+ topHead : 평소에 착용하고 있을 장비입니다.
+ midHead : 평소에 착용하고 있을 장비입니다.
+ lowHead : 평소에 착용하고 있을 장비입니다.
+ leftHand : 평소에 착용하고 있을 장비입니다.
+ rightHand : 평소에 착용하고 있을 장비입니다.
+ leftAccessory : 평소에 착용하고 있을 장비입니다.
+ rightAccessory : 평소에 착용하고 있을 장비입니다.
+ robe : 평소에 착용하고 있을 장비입니다.
+ armor : 평소에 착용하고 있을 장비입니다.
+ shoes : 평소에 착용하고 있을 장비입니다.
+ arrow : 평소에 착용하고 있을 화살입니다.
+ monsters : 지정된 몬스터를 공격할때 설정한 장비를 해당 부위에 장착합니다.
+ weight 0 : 지정된 무게(%)가 됐을시에 설정한 장비를 해당 부위에 장착합니다.
+ whileSitting 0
+ hp
+ sp
+ onAction
+ whenStatusActive
+ whenStatusInactive
+ whenFollowing
+ spirit
+ aggressives
+ stopWhenHit 0
+ inLockOnly 0
+ notWhileSitting 0
+ notInTown 0
+ timeout 0
+ disabled 0
+ inInventory
+ manualAI 0
+}
+
+######## 아이템 사용 설정 ########
+(중복되는 설정은 비워둘테니 위쪽의 설명을 참고하시길..)
+useSelf_item { : 지정된 아이템을 사용합니다.
+ hp
+ sp
+ onAction
+ whenStatusActive
+ whenStatusInactive
+ whenFollowing
+ spirit
+ aggressives
+ monsters
+ notMonsters
+ stopWhenHit 0
+ inLockOnly 0
+ notWhileSitting 0
+ notInTown 0
+ timeout
+ disabled 0
+ inInventory
+ manualAI 0
+}
+
+######## 자동창고와 자동구입&판매 설정 ########
+buyAuto { : 지정된 아이템을 자동구입합니다.
+ npc : 자동구입을 사용할 엔피시의 위치입니다. ex) prontera 164 125
+ standpoint : 지정된 엔피시를 사용할때 자신의 위치(X,Y좌표)입니다.
+ distance 5 : 지정된 엔피시를 사용할때 엔피시와 자신과의 거리입니다.
+ minAmount 2 : 지정된 갯수이하로 아이템이 남았을때 아이템을 구입합니다.
+ maxAmount 3 : 지정된 갯수만큼 아이템을 구입합니다.
+}
+sellAuto 0 : 1은 자동판매를 사용합니다.
+sellAuto_npc : 자동판매를 사용할 엔피시의 위치입니다. ex) prontera 164 125
+sellAuto_standpoint : 지정된 엔피시를 사용할때 자신의 위치(X,Y좌표)입니다.
+sellAuto_distance 5 : 지정된 엔피시를 사용할때 엔피시와 자신과의 거리입니다.
+storageAuto 1 : 1은 자동창고를 사용합니다.
+storageAuto_npc payon 181 103 : 자동창고를 사용할 엔피시의 위치입니다. ex) prontera 164 125
+storageAuto_distance 5 : 지정된 엔피시를 사용할때 엔피시와 자신과의 거리입니다.
+storageAuto_npc_type 1 : 1은 기본 카프라 타입(c r1 n), 2는 코모도 카프라 타입(c c r1 n), 3은 사용자 정의 타입입니다.
+storageAuto_npc_steps : 엔피시와의 대화 패턴입니다. 위에서 사용자 정의 타입을 선택했을시에 사용가능합니다.
+                        ex) c=계속 r1=r0부터 순서대로 내려가며 선택합니다. n=대화종료
+storageAuto_password : 창고에 암호입력을 합니다. KRO에서는 안쓴다네요.
+storageAuto_keepOpen 0 : 1은 창고를 닫지않고 계속 열고있습니다.
+storageAuto_useChatCommand : ?
+relogAfterStorage 1 : 창고를 이용후 아이템의 인덱스 오류방지로 재접속합니다.
+getAuto 빨간포션{ : 지정된 아이템을 창고에서 꺼냅니다.
+ minAmount 2 : 지정된 아이템이 설정한 갯수이하가 되면 창고에서 꺼냅니다.
+ maxAmount 100 : 지정된 아이템을 설정한 갯수만큼 창고에서 꺼냅니다.
+ passive 0 : 0은 minAmount 의 조건이 충족되면 자동창고를 사용, 1은 minAmount 이외의 조건에 의해 자동창고를 사용하러 왔을때 덤으로 사용합니다.
+}
+
+######## 안건드리셔도 되는 부분 ########
+debug 0
+debugPacket_unparsed 0
+debugPacket_received 0
+debugPacket_ro_sent 0
+debugPacket_sent 0
+debugPacket_exclude
+debugPacket_include
+debugPacket_include_dumpMethod
+debugDomains

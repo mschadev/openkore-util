@@ -1,0 +1,10 @@
+C:\Users\john\Desktop\OpenkoreUtil\OpenkoreUtil\bin\Debug\OpenkoreUtil.exe.config
+C:\Users\john\Desktop\OpenkoreUtil\OpenkoreUtil\bin\Debug\OpenkoreUtil.exe
+C:\Users\john\Desktop\OpenkoreUtil\OpenkoreUtil\bin\Debug\OpenkoreUtil.pdb
+C:\Users\john\Desktop\OpenkoreUtil\OpenkoreUtil\obj\Debug\OpenkoreUtil.csprojResolveAssemblyReference.cache
+C:\Users\john\Desktop\OpenkoreUtil\OpenkoreUtil\obj\Debug\OpenkoreUtil.Form1.resources
+C:\Users\john\Desktop\OpenkoreUtil\OpenkoreUtil\obj\Debug\OpenkoreUtil.Properties.Resources.resources
+C:\Users\john\Desktop\OpenkoreUtil\OpenkoreUtil\obj\Debug\OpenkoreUtil.csproj.GenerateResource.Cache
+C:\Users\john\Desktop\OpenkoreUtil\OpenkoreUtil\obj\Debug\OpenkoreUtil.csproj.CoreCompileInputs.cache
+C:\Users\john\Desktop\OpenkoreUtil\OpenkoreUtil\obj\Debug\OpenkoreUtil.exe
+C:\Users\john\Desktop\OpenkoreUtil\OpenkoreUtil\obj\Debug\OpenkoreUtil.pdb
